@@ -9,6 +9,9 @@
 #include "functions.h"
 #include "item.h"
 #include "ui.h"
+#include "save.h"
+#include "item.h"
+#include "archipelago.h"
 
 void InitScriptExecutionContext(ScriptExecutionContext* context, Script* script);
 void sub_0807DE80(Entity*);

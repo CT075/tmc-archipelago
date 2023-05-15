@@ -7,6 +7,7 @@
 
 void CreateItemEntity(u32, u32, u32);
 void sub_08081404(Entity*, u32);
+
 extern void ExecuteItemFunction(ItemBehavior* this, u32 index);
 
 extern void ItemDebug(ItemBehavior*, u32);
@@ -152,14 +153,6 @@ typedef enum {
     ITEM_KINSTONE_GREEN,
     ITEM_ENEMY_BEETLE
 } Item;
-
-struct ArchipelagoReceivedItem
-{
-    Item id;                     // The item to be received
-    u16 itemIndex;               // The index of the item according to the AP server
-    bool8 isFilled;              // Whether there is an item in this struct that has not been consumed
-    bool8 isProgression;         // Whether a message is progression (for filtering messages)
-};
 
 /** Slot that the item is equipped in. */
 typedef enum { EQUIP_SLOT_A, EQUIP_SLOT_B, EQUIP_SLOT_NONE } EquipSlot;

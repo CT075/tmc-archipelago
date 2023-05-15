@@ -36,6 +36,7 @@
 #include "subtask.h"
 #include "transitions.h"
 #include "ui.h"
+#include "archipelago.h"
 
 // Game task
 
@@ -257,6 +258,12 @@ static void GameMain_Update(void) {
 
     FlushSprites();
     UpdateEntities();
+
+    if (gArchipelagoReceivedItem->isFilled) {
+        gArchipelagoReceivedItem->isFilled = FALSE;
+        InitItemGetSequence(ITEM_BOW, 0, 0);
+    }
+
     UpdateDoorTransition();
     CollisionMain();
     UpdateScroll();
@@ -273,6 +280,7 @@ static void GameMain_Update(void) {
     CheckGameOver();
     sub_080185F8();
     CopyOAM();
+
     switch (gRoomControls.reload_flags) {
         case RELOAD_ALL:
             gPlayerState.queued_action = PLAYER_ROOMTRANSITION;
